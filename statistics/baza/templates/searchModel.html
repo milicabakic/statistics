@@ -1,0 +1,26 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    Search for product
+{% endblock %}
+
+
+
+{% block content %}
+
+    <form method="post" action="{% url 'baza:searchModel' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.marka.id_for_label }}">Enter a brand</label>
+            <p></p>
+            {{form.marka}}
+            <p></p>
+            <label for="{{ form.model.id_for_label }}">Enter a model</label>
+            <p></p>
+            {{form.model}}
+        </div>
+
+        <input type="submit" class="btn btn-secondary" value="Search"/>
+    </form>
+
+{% endblock %}

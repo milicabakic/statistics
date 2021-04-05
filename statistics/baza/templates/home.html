@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    Mobile phones
+{% endblock %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-bottom">
+            <h1>
+                <div class="comment-bottom">    
+                <a href="{% url 'baza:searchBrand' %}">
+                    <span class="btn btn-secondary" >Search for brand</span>
+                </a>  
+                <p></p>
+                <a href="{% url 'baza:searchModel' %}">
+                    <span class="btn btn-secondary">Search for product</span>
+                </a>
+                <p></p>
+                <a href="{% url 'baza:searchPrice' %}">
+                    <span class="btn btn-secondary">Search by price</span>
+                </a>
+                <p></p>
+            </h1>
+        </div>
+    </div>
+
+{% endblock %}

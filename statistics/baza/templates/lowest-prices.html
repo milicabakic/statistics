@@ -1,0 +1,38 @@
+{%  extends 'master.html' %}
+
+{% block title %}
+    Top 5 Low-priced
+{% endblock %}
+
+{% block content %}
+  <div id="container" style="width: 75%;">
+    <canvas id="lowest-prices"></canvas>
+    {{"Top 5 the cheapest mobile phones"}}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data:  JSON.parse("{{data}}".replace(/&quot;/g,'"')),
+          backgroundColor: ['#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'],
+          label: 'Mobiles'
+        }],
+        labels: JSON.parse("{{labels}}".replace(/&quot;/g,'"')) 
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('lowest-prices').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+
+{% endblock %}
